@@ -44,8 +44,8 @@ public class StockServiceTest extends BaseTest {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            stockService.Buy(id);//数据库乐观锁
-           // stockService.buyByCacheSet(System.currentTimeMillis(), id);
+           // stockService.Buy(id);//数据库乐观锁
+            stockService.buyByCacheSet(System.currentTimeMillis(), id);
         }
     }
 
