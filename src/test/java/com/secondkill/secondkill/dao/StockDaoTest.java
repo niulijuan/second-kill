@@ -19,4 +19,9 @@ public class StockDaoTest extends BaseTest {
     public void getById() {
         System.out.println("output:>>>" + stockDao.getById(2l));
     }
+
+    @Test
+    public void updateSale(){
+        System.out.println("output:>>>" + stockDao.updateSale(2l));
+    }
 }

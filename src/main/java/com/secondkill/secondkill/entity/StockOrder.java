@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * 订单表
  * @author niulijuan <niulijuan@maizijf.com>
  * @create 2018/6/12
  */

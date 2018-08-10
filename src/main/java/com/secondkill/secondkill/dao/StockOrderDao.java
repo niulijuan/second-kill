@@ -8,5 +8,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @create 2018/6/21
  */
 public interface StockOrderDao extends JpaRepository<StockOrder,Long> {
-
 }

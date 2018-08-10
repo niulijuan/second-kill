@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
+ * 商品表
  * @author niulijuan <niulijuan@maizijf.com>
  * @create 2018/6/12
  */
@@ -18,7 +19,7 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer count;
+    private Integer counts;
     private Integer sale;
     private Long version;
 }

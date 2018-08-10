@@ -3,8 +3,66 @@ spring:
     url: jdbc:mysql://localhost:3306/secondkill
     username: root
     password: 12345678
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    database: h2
+    show-sql: true
     hibernate:
       ddl-auto: none
-    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+
+mybatis:
+  mapper-locations:
+  - classpath*:com/secondkill/secondkill/dao/*.xml
+  - classpath*:com/secondkill/secondkill/mapper/*.xml
+  config-location: classpath:config.xml
+  type-aliases-package: com.secondkill.secondkill.entity
+
+
+cache:
+  codis:
+    password: redis
+    codisType: haproxy
+    haproxy:
+      haAddressAndPort: 192.168.4.53:29000
+    enabled: true
+    envrionment: DEFAULT
+    debug: false
+    pool:
+      maxTotal: 1000
+      maxIdle: 1000
+      minIdle: 0
+      maxWaitMillis: 20000
+    zk:
+      zkAddressAndPort: 192.168.4.38:2181
+      zkSessionTimeOutMs: 30000
+      zkProxyDir: /zk/codis/db_nonobank/proxy
+  redis:
+    enabled: true
+    single:
+      enabled: true
+      host: localhost
+      port: 6379
+      timeout: 60000
+      database: 0
+    sentinel:
+      sentinels:
+              - "192.168.4.21:26379"
+              - "192.168.4.22:26379"
+              - "192.168.4.23:26379"
+      enabled: true
+      timeout: 36000
+      master-name: prd01
+    pool:
+      maxTotal: 1000
+      maxIdle: 200
+      minIdle: 100
+      maxWaitMillis: 18000
+      testOnBorrow: true
+      testOnReturn: true
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 60000
+      numTestsPerEvictionRun: -1

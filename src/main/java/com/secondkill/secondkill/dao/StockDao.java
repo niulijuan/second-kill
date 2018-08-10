@@ -1,12 +1,14 @@
 package com.secondkill.secondkill.dao;
 
 import com.secondkill.secondkill.entity.Stock;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author niulijuan <niulijuan@maizijf.com>
  * @create 2018/6/12
  */
-public interface StockDao extends JpaRepository<Stock,Long> {
+@Mapper
+public interface StockDao {
     Stock getById(Long id);
+    int updateSale(Long id);
 }
